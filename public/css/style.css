@@ -23,4 +23,25 @@ i.mr{
 .form-control::-ms-input-placeholder { /* Microsoft Edge */
     color: #cdcdcd;
     font-weight: normal;
- }
+}
+
+.header-part-list{
+	background: #fff;
+	padding: 5px 10px;
+	height: 52px;
+}
+.icon-add-part{
+	width: 42px;
+	height: 42px;
+	float: right;
+}
+.status-line-head{
+	line-height: 42px;
+	height: 42px;
+	padding-left: 10px;
+	float: left;
+}
+
+.list-parts{
+	padding: 10px;
+}

@@ -8,6 +8,6 @@ class PartController extends Controller
 {
     //
     public function addPart(Request $request){
-    	return view("main");
+    	return view("parts.addpart");
     }
 }
