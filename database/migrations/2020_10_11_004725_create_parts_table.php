@@ -17,7 +17,7 @@ class CreatePartsTable extends Migration
             $table->id();
             $table->string('part_number');
             $table->integer('status');
-            $table->string('job_number');
+            $table->string('job_number')->nullable();
             $table->timestamps();
         });
     }

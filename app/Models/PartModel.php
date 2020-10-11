@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class PartModel extends Model
 {
     use HasFactory;
+    protected $table = "parts";
+
     protected $fillable = [
-        'pert_number',
+        'part_number',
+        'job_number',
         'status',
     ];
 }

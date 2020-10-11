@@ -3,7 +3,11 @@
 @section('content')
 <div class="header-part-list">
 		<div class="status-line-head">
-			Add part... 
+			@if(isset($save_status))
+				@if(!$save_status) <span class="text-danger">Error save part</span>
+				@endif
+			@else Add part...
+			@endif
 		</div>
 </div>
 <div class="container p-2" style="padding-top:20px; ">
@@ -24,7 +28,7 @@
 						</div>
 						<hr>
 						<div class="form-group">
-							<button class="btn btn-green btn-block" type="button" type="submit">Save</button>
+							<button class="btn btn-green btn-block" type="submit">Save</button>
 						</div>
 					</form>
 				</div>
