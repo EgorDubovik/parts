@@ -25,9 +25,8 @@
                 <div class="flex-grow-1">
                     <div class="small font-weight-bold text-success mb-1">Clicks</div>
                     <div class="h5">{{$part->part_number}}</div>
-                    <div class="text-xs font-weight-bold text-success d-inline-flex align-items-center">
-                        <!-- <i class="mr-1" data-feather="trending-up"></i>
-                        12% -->
+                    <div class="text-xs font-weight-bold text-secondary d-inline-flex align-items-center">
+                        {{$part->job_number}}
                     </div>
                 </div>
                 <div class="ml-2"><a href=?buy={{$part->id}}><i class="fa fa-check fa-2x text-gray-500"></i></a></div>

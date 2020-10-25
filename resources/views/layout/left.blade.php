@@ -2,24 +2,19 @@
     <nav class="sidenav shadow-right sidenav-light">
         <div class="sidenav-menu">
             <div class="nav accordion" id="accordionSidenav">
-                <a class="nav-link" href="/dashboard">
+                <a class="nav-link" href="/">
                     <div class="nav-link-icon">
                       <i class="fas fa-align-center"></i>
                     </div>
-                    Dashboard
+                    Parts list
                 </a>
                 <a class="nav-link" href="/fba">
                     <div class="nav-link-icon">
-                      <i class="fas fa-truck-loading"></i>
+                        <i class="far fa-address-card"></i>
                     </div>
-                    FBA Сервис
+                    Insurence
                 </a>
-                <a class="nav-link" href="/fbm">
-                    <div class="nav-link-icon">
-                      <i class="fas fa-warehouse"></i>
-                    </div>
-                    FBM Сервис
-                </a>
+                
             </div>
         </div>
         <div class="sidenav-footer">
