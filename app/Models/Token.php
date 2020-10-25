@@ -12,5 +12,5 @@ class Token extends Model
 
     protected $fillable = [
     	'token',
-    ] 
+    ];
 }
