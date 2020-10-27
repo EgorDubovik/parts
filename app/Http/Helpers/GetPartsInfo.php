@@ -19,22 +19,26 @@ class GetPartsInfo
 
 	private $client;
 
+	private $token;
+
 	
 	public function __construct(){
 		$this->userName  = env('REL_USER_NAME','username');
 		$this->userPass = env('REK_USER_PASS','userpass');				
 		$this->client = new Client();
+
 	}
 	
 
 	//  Check if we have vallid token for API. If not - make new one
 	private function chackTokenOrGetNew(){
-		$date = today()->format('Y-m-d');
-		$token = Token::whereDate('created_at','>',$date)->first();
+		$date = date('Y-m-d H:i:s', strtotime('-9 hour'));
+		$token = Token::where('created_at','>',$date)->first();
+		dd($token);
 		if($token){
-			dd($token);
+			$this->token = $token;
 		} else {
-			$this->getNewToken();
+			$this->toke = $this->getNewToken();
 		}
 		
 	}
@@ -54,9 +58,15 @@ class GetPartsInfo
         	]);
 		if($response->getStatusCode()==200){
 			$data = json_decode($response->getBody()->getContents(),true);
-			dd($data['accessToken']);
-		} else {
+			Token::truncate();
+			$token = new Token;
+			$token->token = $data['accessToken'];
+			$token->save();
 
+			return $token->token;
+			
+		} else {
+			return "undefined";
 		}
 		
 
