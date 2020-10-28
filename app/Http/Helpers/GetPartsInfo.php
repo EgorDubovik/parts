@@ -34,11 +34,10 @@ class GetPartsInfo
 	private function chackTokenOrGetNew(){
 		$date = date('Y-m-d H:i:s', strtotime('-9 hour'));
 		$token = Token::where('created_at','>',$date)->first();
-		dd($token);
 		if($token){
-			$this->token = $token;
+			$this->token = $token->token;
 		} else {
-			$this->toke = $this->getNewToken();
+			$this->token = $this->getNewToken();
 		}
 		
 	}
@@ -72,8 +71,27 @@ class GetPartsInfo
 
 	}
 
-	public function test(){
+	// Get price from relaible parts
+	public function GetPartsInfo($partNumber){
+		$link = $this->globalURL.'navapp/v1/product/detail/'.$partNumber.'?mfc=WPL';
+		$response = $this->client->get($link,[
+			'headers'=>
+			[
+				'Authorization'=>'Bearer '.$this->token
+			]
+		]);
+		if($response->getStatusCode()==200){
+			$data = json_decode($response->getBody()->getContents(),true);
+			return $data;
+		} else {
+			return array();
+		}
+		
+	}
+
+	public function test($partNumber){
 		$this->chackTokenOrGetNew();
+		return $this->GetPartsInfo($partNumber);
 	}
 
 }

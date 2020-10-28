@@ -23,7 +23,7 @@
         <div class="card-body">
             <div class="d-flex align-items-center">
                 <div class="flex-grow-1">
-                    <div class="small font-weight-bold text-success mb-1">Clicks</div>
+                    <div class="small font-weight-bold {{$part->colorStatus}} mb-1">{!!$part->stockStatus!!}</div>
                     <div class="h5">{{$part->part_number}}</div>
                     <div class="text-xs font-weight-bold text-secondary d-inline-flex align-items-center">
                         {{$part->job_number}}

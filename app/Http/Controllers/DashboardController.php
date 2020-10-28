@@ -24,7 +24,31 @@ class DashboardController extends Controller
     	$parts = PartModel::where("status",0)->get();
 
     	foreach ($parts as $part) {
-			$part->job_number = $getPartsInfo->test();    		
+            $part_info = $getPartsInfo->test($part->part_number);
+            if($part_info['available']){
+                if($part_info['inStock']){
+                    // $part->colorStatus = 'text-success';
+                    // $part->stockStatus = 'inStock';
+                    foreach ($part_info['warehouses'] as $warehouse) {
+                        if($warehouse['warehouseCode']==118 && $warehouse['quantity']>0){
+                            $part->colorStatus = 'text-success';
+                            $part->stockStatus = 'Richardson <b>'.$warehouse['quantity'].'</b> ('.$part_info['totalqty'].')';
+                            break;
+                        } else {
+                            $part->colorStatus = 'text-warning';
+                            $part->stockStatus = 'Else warehouses <b>'.$part_info['totalqty'].'</b>';
+                        }
+                    }
+                    
+                } else {
+                    $part->colorStatus = 'text-danger';
+                    $part->stockStatus = 'Back Order';    
+                }
+            } else {
+                $part->colorStatus = 'text-muted';
+                $part->stockStatus = 'Undefined';
+            }
+			//$part->job_number = $part_info['available'];    		
     	}
 
     	return view('main')->with('parts',$parts);
