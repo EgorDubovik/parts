@@ -27,8 +27,8 @@ class DashboardController extends Controller
             $part_info = $getPartsInfo->test($part->part_number);
             if($part_info['available']){
                 if($part_info['inStock']){
-                    // $part->colorStatus = 'text-success';
-                    // $part->stockStatus = 'inStock';
+                    
+                    $part->price = (!empty($part_info['partnerPrice'])) ? $part_info['partnerPrice'] : 0;
                     foreach ($part_info['warehouses'] as $warehouse) {
                         if($warehouse['warehouseCode']==118 && $warehouse['quantity']>0){
                             $part->colorStatus = 'text-success';

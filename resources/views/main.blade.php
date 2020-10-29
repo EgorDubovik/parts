@@ -24,7 +24,7 @@
             <div class="d-flex align-items-center">
                 <div class="flex-grow-1">
                     <div class="small font-weight-bold {{$part->colorStatus}} mb-1">{!!$part->stockStatus!!}</div>
-                    <div class="h5">{{$part->part_number}}</div>
+                    <div class="h5">{{$part->part_number}} <span class="bg-success text-white" style="border-radius: 10px;    padding: 2px 5px;">${{$part->price}}</span></div>
                     <div class="text-xs font-weight-bold text-secondary d-inline-flex align-items-center">
                         {{$part->job_number}}
                     </div>
