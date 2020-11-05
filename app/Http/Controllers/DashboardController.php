@@ -10,6 +10,13 @@ class DashboardController extends Controller
     //
     public function indexAction(Request $request){
     	
+        if(isset($request->remove)){
+            $part = PartModel::find($request->remove);
+            if ($part) {
+                $part->status=2;
+                $part->save();
+            }
+        }
 
     	if(isset($request->buy)){
     		$part = PartModel::find($request->buy);

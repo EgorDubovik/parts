@@ -29,11 +29,14 @@
                         {{$part->job_number}}
                     </div>
                 </div>
-                <div class="ml-2"><a href=?buy={{$part->id}}><i class="fa fa-check fa-2x text-gray-500"></i></a></div>
+                <div class="ml-2" style="margin-right: 20px"><a href=?buy={{$part->id}}><i class="fa fa-check fa-2x text-gray-500"></i></a></div>
+                <div class="ml-2"><a href="?remove={{$part->id}}" onClick="if(!confirm('Are you sure?')) return false;"><i class="fa fa-times fa-2x " style="color: #ffbdbd"></i></a></div>
             </div>
         </div>
     </div>
     @endforeach
 </div>
+
+
 
 @stop
