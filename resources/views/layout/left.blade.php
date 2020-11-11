@@ -8,7 +8,7 @@
                     </div>
                     Parts list
                 </a>
-                <a class="nav-link" href="/fba">
+                <a class="nav-link" href="/insurance">
                     <div class="nav-link-icon">
                         <i class="far fa-address-card"></i>
                     </div>

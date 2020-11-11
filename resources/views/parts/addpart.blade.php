@@ -6,7 +6,7 @@
 			@if(isset($save_status))
 				@if(!$save_status) <span class="text-danger">Error save part</span>
 				@endif
-			@else Add part...
+			@else Add insurance...
 			@endif
 		</div>
 </div>
@@ -19,11 +19,11 @@
 						@csrf
 						<input type="hidden" name="event" value="add_part">
 						<div class="form-group">
-							<label for="part_number">Part number</label>
+							<label for="part_number">Customer name</label>
 							<input type="text" class="form-control" id="part_number" name="part_number">
 						</div>
 						<div class="form-group">
-							<label for="job_number">Job # | Customer name</label>
+							<label for="job_number">Part namber</label>
 							<input type="text" class="form-control" id="job_number" name="job_number">
 						</div>
 						<hr>

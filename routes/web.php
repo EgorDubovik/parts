@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','App\Http\Controllers\DashboardController@indexAction');
 Route::get('/addpart','App\Http\Controllers\PartController@addPart');
 Route::post('/addpart','App\Http\Controllers\PartController@addPart');
+Route::get('/addInsurance','App\Http\Controllers\InsuranceController@actionAddinsurance'); 
+Route::get('/insurance','App\Http\Controllers\InsuranceController@viewList');
